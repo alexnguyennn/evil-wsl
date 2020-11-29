@@ -10,7 +10,7 @@
   :move-point nil
   :repeat nil
   (interactive "<R><x><y>")
-  (shell-command-on-region beg end "xargs -I{} cmd.exe /c nircmd clipboard set '{}'")
+  (shell-command-on-region beg end "utf8clip.exe")
   (evil-yank beg end type register yank-handler))
 
 
