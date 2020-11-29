@@ -77,3 +77,5 @@
             (evil-define-key 'normal map "gw" 'evil-replace-with-register-wsl)
             ;; (define-key map (kbd "s-/") 'evil-commentary-line)
             map))
+
+(provide 'evil-wsl)
