@@ -5,20 +5,14 @@
   :group 'evil
   :prefix "evil-wsl-")
 
-;; (evil-define-operator evil-wsl-yank (beg end type)
-;;   "save to win clipboard on object that {motion} moves over."
-;;   :move-point nil
-;;   (interactive "r")
-;;   (shell-command-on-region beg end "clip.exe")
-;;   (evil-yank beg end type))
-
 (evil-define-operator evil-wsl-yank (beg end type register yank-handler)
   "save to win clipboard on object that {motion} moves over."
   :move-point nil
   :repeat nil
   (interactive "<R><x><y>")
-  (shell-command-on-region beg end "clip.exe")
+  (shell-command-on-region beg end "xargs -I{} cmd.exe /c nircmd clipboard set '{}'")
   (evil-yank beg end type register yank-handler))
+
 
 (defun get-win-clipboard-text ()
   (string-trim
